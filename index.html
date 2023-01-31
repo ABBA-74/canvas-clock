@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canvas - Clock</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="chrono">
+        <div class="chrono-value"></div>
+        <div class="time d-none">
+          <p class="time-day-string"></p>
+          <p class="time-part-day"></p>
+          <p class="time-hour"></p>
+          <p class="time-date"></p>
+        </div>
+      </div>
+    </div>
+    <div class="settings pb-2">
+      <p class="mb-2">Path 1</p>
+      <div class="input-form">
+        <div class="input-form-group mb-2">
+          <input
+            type="range"
+            id="speed-1"
+            name="speed-1"
+            min="1"
+            max="10"
+            value="1"
+            step="1"
+          />
+          <label for="speed-1">Speed: <span>1</span></label>
+        </div>
+        <div class="input-form-group mb-2">
+          <label class="switch">
+            <span class="slider round">Clockwise</span>
+            <input type="checkbox" class="path1" />
+          </label>
+        </div>
+      </div>
+      <p class="my-2">Path 2</p>
+      <div class="input-form">
+        <div class="input-form-group mb-2">
+          <input
+            type="range"
+            id="speed-2"
+            name="speed-2"
+            min="1"
+            max="10"
+            value="1"
+            step="1"
+          />
+          <label for="speed-2">Speed: <span>1</span></label>
+        </div>
+        <div class="input-form-group mb-2">
+          <label class="switch">
+            <span class="slider round">Clockwise</span>
+            <input type="checkbox" class="path2" checked />
+          </label>
+        </div>
+      </div>
+    </div>
+    <canvas id="canvas"></canvas>
+    <script src="script.js" type="module"></script>
+  </body>
+</html>

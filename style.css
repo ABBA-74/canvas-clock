@@ -1,0 +1,258 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  position: relative;
+  min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+html,
+body {
+  background-color: #0b0b0b;
+  background: radial-gradient(rgba(0, 0, 0, 0.605), rgb(0, 0, 0)),
+    url('./assets/img/brushed-alum.png');
+  color: rgb(228, 228, 228);
+
+  min-height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+.container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(45, 45, 45, 0.126);
+  height: 100vh;
+  width: 100%;
+  font-weight: 400;
+  text-align: center;
+}
+
+.container .chrono {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(
+    rgba(236, 236, 236, 0.068),
+    rgba(0, 0, 0, 0.849) 80%,
+    rgb(0, 0, 0) 95%
+  );
+  border: 9px solid #33333388;
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.591);
+  padding: 2.1rem;
+  height: 24rem;
+  width: 24rem;
+  border-radius: 50%;
+}
+.container .chrono::before {
+  content: '';
+  position: absolute;
+  left: 0rem;
+  top: 0rem;
+  bottom: 0;
+  right: 0;
+  background: url('./assets/img/bg-clock.png') no-repeat center center;
+  background-size: cover;
+  box-shadow: 0 6px 6px rgb(235, 235, 235);
+  opacity: 0.15;
+  border-radius: 50%;
+}
+.container .chrono,
+.container .time {
+  font-weight: 900;
+  text-shadow: 0 6px 9px rgb(0, 0, 0);
+}
+.container .chrono {
+  font-size: 5.1rem;
+}
+.container .time {
+  font-size: 2rem;
+  letter-spacing: 2px;
+}
+
+.time-day-string {
+  padding-bottom: 0.36rem;
+}
+
+.time-part-day {
+  display: none;
+}
+
+.time-date {
+  padding-top: 1rem;
+  font-size: 1.8rem;
+}
+
+.container .chrono-value {
+  animation: zoom 1s ease-out infinite;
+}
+
+.wrapper-seconds {
+  position: absolute;
+  inset: 0;
+  height: 22.8rem;
+  width: 22.8rem;
+}
+
+/*** Settings ***/
+
+.settings:not(.inactive) {
+  left: -20rem;
+}
+
+.settings {
+  position: absolute;
+  top: 0;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.61);
+  background: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.61),
+    rgba(24, 119, 228, 0.226)
+  );
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16);
+  border-bottom-right-radius: 0.3rem;
+  padding-left: 0.8rem;
+  padding-block: 0.8rem;
+}
+
+.settings::after {
+  content: 'SETTING';
+  position: absolute;
+  right: -2rem;
+  top: 0;
+  height: 60%;
+  font-weight: 700;
+  padding-block: 0.4rem;
+  color: rgb(211, 211, 211);
+  background-color: rgba(24, 119, 228, 0.287);
+  box-shadow: -3px 3px 3px rgba(0, 0, 0, 0.16);
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  text-align: center;
+  letter-spacing: 2px;
+  border-bottom-right-radius: 0.3rem;
+}
+.settings.active {
+  animation: slideIn 0.45s ease-in-out forwards;
+}
+.settings.inactive {
+  animation: slideOut 0.3s ease-in-out forwards;
+}
+
+.settings .input-form {
+  background-color: rgba(41, 41, 41, 0.369);
+  border-radius: 0.3rem;
+  border-left: 3px solid rgba(24, 119, 228, 0.287);
+  width: 93%;
+  padding: 1.2rem 1.8rem;
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.settings .input-form-group {
+  display: flex;
+  align-items: flex-start;
+}
+.settings .input-form-group .switch {
+  padding-left: 0;
+  height: 1rem;
+  display: flex;
+  align-items: center;
+}
+.settings .input-form-group .switch span {
+  padding-right: 1rem;
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(20rem);
+    opacity: 1;
+  }
+}
+@keyframes slideOut {
+  to {
+    transform: translateX(-20rem);
+    opacity: 0.3;
+  }
+}
+
+.settings .input-form {
+  display: flex;
+  margin-bottom: 0.5rem;
+}
+.settings .input-form label {
+  padding-left: 1rem;
+}
+
+@keyframes zoom {
+  0% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  5% {
+    opacity: 0;
+    transform: scale(0.3);
+  }
+  80% {
+    transform: scale(1.4);
+    opacity: 0.9;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+button {
+  padding: 0.5rem 1.5rem;
+  background-color: aqua;
+  outline: none;
+  border-radius: 0.3rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+@media screen and (max-width: 500px) {
+  .container .chrono {
+    height: 20rem;
+    width: 20rem;
+  }
+
+  .container .chrono,
+  .container .time {
+    font-size: 1.8rem;
+  }
+  .time-date {
+    padding-top: 1rem;
+    font-size: 1rem;
+    font-weight: 900;
+  }
+}
+
+/** utiles **/
+
+.d-none {
+  display: none;
+}
+.mb-2 {
+  margin-bottom: 0.6rem;
+}
+.my-2 {
+  margin-block: 0.6rem;
+}
